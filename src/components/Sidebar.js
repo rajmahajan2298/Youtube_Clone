@@ -18,7 +18,7 @@ const Sidebar = () => {
   if(!isMenuOpen) {
     return(
     <div className="w-16 p-2 m-2 flex flex-col items-center space-y-6 shadow-lg">
-      {!isWatchPage && (
+      {!isWatchPage && ( 
         <div>
         <div className="flex flex-col items-center cursor-pointer hover:bg-gray-200 rounded-lg p-2">
           <FiHome className="text-xl" />

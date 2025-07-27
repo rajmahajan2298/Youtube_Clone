@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utlis/appSlice';
 import { cacheResults } from "../utlis/searchSlice";
 import { YOUTUBE_SEARCH_API } from '../utlis/config';
+import Theme from './Theme';
 
 const Head = () => {
      
@@ -44,14 +45,14 @@ const Head = () => {
     <div className='grid grid-flow-col p-3 m-2 shadow-lg'>
         {/** Logo Section */} 
         <div className='flex col-span-1'>
-          <img onClick= {()=> toggleMenuHandler()} className='h-8 cursor-pointer hover:bg-gray-300 rounded-full' alt='menu' src='https://www.svgrepo.com/show/312300/hamburger-menu.svg' />
+          <img onClick= {()=> toggleMenuHandler()} className='h-8 cursor-pointer hover:bg-gray-300 rounded-full dark:bg-gray-200 dark:hover:bg-gray-300' alt='menu' src='https://www.svgrepo.com/show/312300/hamburger-menu.svg' />
           <img className='w-32 h-7 mx-4' alt='logo' src='https://upload.wikimedia.org/wikipedia/commons/3/34/YouTube_logo_%282017%29.png' />
+           
         </div>
-
         {/** Search Section */}
         <div className='col-span-10 px-8'>
           <div>
-           <input className='w-1/2 border border-gray-400 rounded-l-full p-1 pl-5' 
+           <input className='w-1/2 border border-gray-400 rounded-l-full p-1 pl-5 bg-white dark:bg-black text-black dark:text-white' 
            type='text' 
            placeholder='Search'
            value={searchQuery}
@@ -65,7 +66,13 @@ const Head = () => {
           <div className='absolute w-[450px] bg-white px-6 py-2 rounded-lg shadow-lg'>
             <ul>
               {suggestions.map((items, index) => (
-                <li key={index} className='px-2 py-2 border border-gray-100 rounded-lg shadow-sm hover:bg-gray-300'>{items}</li>
+                <li key={index} className='px-2 py-2 
+                  border border-gray-100 dark:border-gray-700 
+                  rounded-lg shadow-sm 
+                bg-white dark:bg-black 
+                text-black dark:text-white 
+                hover:bg-gray-300 dark:hover:bg-gray-700 
+                  transition-colors duration-200'>{items}</li>
               ))}
             </ul>
           </div>
@@ -76,6 +83,11 @@ const Head = () => {
         <div className='col-span-1'>
           <img className='h-8 cursor-pointer' alt='userprofile-logo' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s' />
         </div> 
+
+        {/** Toggle Theme Section  */}
+        <div className='border border-black rounded-lg shadow-lg w-16 h-9'>
+           <Theme />
+        </div>
     </div>
   )
 }

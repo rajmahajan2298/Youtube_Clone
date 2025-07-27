@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import store from "./utlis/store";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'; 
 import WatchPage from "./components/WatchPage";
+import StoreTheme from "./components/StoreTheme";
+
 
 const appRouter = createBrowserRouter([{
     path: "/",
@@ -23,9 +25,11 @@ const appRouter = createBrowserRouter([{
   }]);
 
 const App = () => {
+
   return(
     <Provider store={store}>
-    <div>
+    <StoreTheme />
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
       <Head />
       <RouterProvider router = {appRouter} />
     </div>
